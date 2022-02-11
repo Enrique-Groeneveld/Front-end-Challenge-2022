@@ -2,21 +2,53 @@
 <html>
 <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" >
-    <body>
-        <h1 id="title">Titel veld</h1>
-        <p id="statement">text bladiebla</p>
-        <input onclick="editText()" class="w3-button w3-green" type="button" value="Eens">
-        <input onclick="editText()" class="w3-button w3-teal" type="button" value="Geen mening">
-        <input onclick="editText()" class="w3-button w3-red" type="button" value="Oneens">
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style.css">
+    <script rel="script" src="data.js"></script>
+    <!-- <script rel="script" src="testdata.js"></script> -->
+    <script rel="script" src="script.js" defer></script>
+
+</head>
+
+<body>
+    <div class="start" id="start">
+        <div class="start__modal">
+            <!---->
+            <div class="start__logos"><img alt="StemWijzer Logo" src="https://tweedekamer2021.stemwijzer.nl/gfx/img/votematch_applogo.svg"
+                    class="start__logo">
+                <!---->
+            </div>
+            <h1 aria-label="Tweede Kamer&amp;shy;verkiezingen 2021" class="start__title">Tweede Kamer­verkiezingen 2021
+            </h1>
+            <h2 class="start__subtitle">Test je politieke voorkeur aan de hand van 30 stellingen</h2>
+            <div class="start__modal-footer"><input id="start" onclick="start()" class="w3-button w3-green" type="button" value="Start"></div>
+        </div>
+    </div>
+
+    <div id="container" display="none">
+        <h1 id="title"></h1>
+        <p id="statement"></p>
+        <input onclick="answer('pro')" class="w3-button w3-green" type="button" value="Eens">
+        <input onclick="answer('none')" class="w3-button w3-teal" type="button" value="Geen mening">
+        <input onclick="answer('contra')" class="w3-button w3-red" type="button" value="Oneens">
         <div class="w3-dropdown-click">
-            <button onclick="myFunction()" class="w3-button w3-black">Zou uw het standpunt van een partij willen weten?</button>
+            <button onclick="myFunction()" class="w3-button w3-black">Zou uw het standpunt van een partij willen
+                weten?</button>
             <div id="list" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom"></div>
         </div>
         <h1 id="party"></h1>
         <p id="specStatement"></p>
-    </body>
-    <script rel="script" src="data.js" ></script>
-    <script rel="script" src="script.js" defer></script>
+    </div>
 
-</html> 
+    
+
+
+
+    <p id="result"></p>
+
+</body>
+
+
+</html>

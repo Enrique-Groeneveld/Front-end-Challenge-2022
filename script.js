@@ -21,10 +21,13 @@ subjects.forEach(subject => {
 
 
 
-
+start()
+myFunction()
 function start(){
 	container.style.display = '' ;
 	document.getElementById('start').style.display = 'none' ;	
+	body = document.getElementsByTagName('body')[0];
+	document.body.style.background = "#f3f3f3";	
 	editText();
 }
 
@@ -49,28 +52,62 @@ function getParties () {
 	let sortedParties = sortedNames.map(n => subjects[indicator].parties.find(x => x.name == n));
 
 	sortedParties.forEach((item, index)=>{
-		var node = document.createElement('a');
-		node.className = "w3-bar-item w3-button";
-		node.onclick = function() {
-			specStatement.innerHTML = item['opinion']
-			party.innerHTML = item['name']
+		if (item.position == "pro"){
+			addList = document.getElementById('partyPro');
 		}
-		node.appendChild(document.createTextNode(item["name"]));
-		list.appendChild(node);
+		else if (item.position == "none"){
+			addList = document.getElementById('partyNeither');
+		}
+		else if (item.position == "contra"){
+			addList = document.getElementById('partyContra');
+		}
+		var list2 = document.createElement('li');
+		var node = document.createElement('input');
+		node.className = "w3-button w3-xlarge w3-round-small thoughts2";
+		node.type = "button";
+		node.value = item["name"]
+		node.onclick = function(){
+			myFunction2(item['name'])
+		};
+
+		var div = document.createElement('div');
+		div.id=item["name"] 
+		div.className="spec_statement_modal"
+		div.style="display:none"
+
+		div.innerHTML = item["opinion"]
+
+		
+		// var p = document.createElement('p');
+		// p.innerHTML = item["name"];
+
+		// console.log(node);
+		list2.appendChild(node);
+
+		addList.appendChild(list2);
+		addList.appendChild(div);
 	})
 }
 
 
 //empty's subject and opinions of the party so it can be set afterwards
 function unSelect (){ 
-	list.innerHTML = "";
-	specStatement.innerHTML = '';	
-	party.innerHTML = '';
+	// list.innerHTML = "";
 }
 
 
 function myFunction() {
 	var x = list;
+	if (x.className.indexOf("w3-show") == -1) {
+	  x.className += " w3-show";
+	} else { 
+	  x.className = x.className.replace(" w3-show", "");
+	}
+  }
+
+function myFunction2(showParty) {
+	list2 = document.getElementById(showParty);
+	var x = list2;
 	if (x.className.indexOf("w3-show") == -1) {
 	  x.className += " w3-show";
 	} else { 

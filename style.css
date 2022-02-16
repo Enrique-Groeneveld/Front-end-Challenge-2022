@@ -1,19 +1,43 @@
-.container{
+* {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.wrapper {
+    max-height: fit-content;
     place-items: center;
     margin: 0 auto;
     orientation: landscape;
 }
-
-body{ 
-    background: url("https://tweedekamer2021.stemwijzer.nl/gfx/img/background.jpg") no-repeat center center fixed; 
+.result{
+    display:none;
+}
+body {
+    background: url("https://tweedekamer2021.stemwijzer.nl/gfx/img/background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+.nav-item{
+    margin-right:200px ;
+    font-size: 20px;
+    top:50%;
+}
 
 .start__modal {
-    left:50%;
+    left: 50%;
+    width: 100%;
+    max-width: 744px;
+    border-radius: 12px;
+    padding: 64px 50px 64px 64px;
+    background: #fff;
+    box-shadow: 0 0 2px rgb(0 0 0 / 10%), 0 16px 80px rgb(0 0 0 / 10%);
+    z-index: 2;
+}
+.end__modal {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
     width: 100%;
     max-width: 744px;
     border-radius: 12px;
@@ -24,7 +48,7 @@ body{
 }
 
 .statement_modal {
-    position:relative;
+    position: relative;
     z-index: 100;
     width: 100%;
     border-radius: 12px;
@@ -32,78 +56,137 @@ body{
     background: #fff;
     box-shadow: 0 0 2px rgb(0 0 0 / 10%), 0 16px 80px rgb(0 0 0 / 10%);
     z-index: 2;
+    margin-bottom: 200px;
+
+    /* overflow: scroll; */
 }
 
-.spec_statement_modal {
-    position:relative;
-    z-index: 100;
+
+.resultBars{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    list-style-type: none;
     width: 100%;
-    border-radius: 12px;
-    padding: 5px 5px 5px 10px;
-    background: #fff;
-    box-shadow: 0 0 2px rgb(0 0 0 / 10%), 0 16px 80px rgb(0 0 0 / 10%);
-    z-index: 2;
+}
+
+.resultBars li{
+    margin-bottom: 10px;
 }
 
 
 .statement {
-    position:absolute;
-    align-items: center;
-    flex-direction: column;
-    padding: 216px 0 262px;
-    width: 70%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+
+
 }
 
 .statement-text {
+    margin-top: 150px;
+    position: relative;
+    transform: translate(-50%);
+    left: 50%;
     font-size: 32px;
-    display: inline;
-    position:relative;
     z-index: 100;
+    width: 550px;
 }
 
 
 .statement__theme {
-    display: inline-block;
-
+    position: relative;
+    transform: translate(-50%);
+    left: 50%;
     text-align: left;
     margin-bottom: 8px;
     font-weight: 700;
     font-size: 36px;
     color: #233fff;
     line-height: 44px;
-    position:relative;
-    z-index: 100;
 }
-.startButton{background-color: #233fff; color:white;}
-.thoughts{background-color: white; color:black; border: solid black 1px;}
-.thoughts2{background-color: white; color:black; border: solid black 1px; display:inline-block;}
-.agree {background-color: #20a84b;}
-.neither {background-color: #e7eaeb; color: black;}
-.disAgree {background-color: #eb2045;}
-.skip {background-color: 12px;}
+
+.startButton {
+    background-color: #233fff;
+    color: white;
+}
+
+.thoughts {
+    background-color: white;
+    color: black;
+    border: solid black 1px;
+}
+
+.thoughts2 {
+    border-radius: 4px;
+    background: #f1f1f1;    
+    color: black;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 4px;
+    width: 60%;
+}
+
+.spec_statement_modal {
+    position: relative;
+    z-index: 100;
+    width: 60%;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  
+    padding: 5px 5px 5px 10px;
+    background: #f1f1f1;    
+}
+
+.agree {
+    background-color: #20a84b;
+}
+
+.neither {
+    background-color: #e7eaeb;
+    color: black;
+}
+
+.disAgree {
+    background-color: #eb2045;
+}
+
+.skip {
+    background-color: #e7eaeb;
+    color: black;
+    border-radius: 4px;
+}
 
 .row {
-display: flex; /* equal height of the children */
+    display: flex;
+    /* equal height of the children */
 }
 
 .col {
-flex: 1; /* additionally, equal width */
-padding: 1em;
-padding-top:0px;
-margin: 2px;
+
+    margin-top: 50px;
+    margin: 2px;
+    width: 33%;
 }
 
-.col ul{
-    margin: 0; 
+.col ul {
+    /* position:relative;
+    transform: translate(-50%);
+    left: 50%; */
+    margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.col h4{
+.col h3 {
     font-weight: bold;
 }
 
 .buttons {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
     background-color: white;
     padding: 45px;
     width: 110%;
@@ -112,5 +195,6 @@ margin: 2px;
     place-items: center;
     text-align: center;
     margin: 10px;
+    margin-bottom: 0px;
 
 }

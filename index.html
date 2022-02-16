@@ -4,19 +4,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- I also linked bootstrap for their progress bar -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
-    <!-- <script rel="script" src="data.js"></script> -->
-    <script rel="script" src="testdata.js"></script>
+    <script rel="script" src="data.js"></script>
+    <!-- <script rel="script" src="testdata.js"></script> -->
     <script rel="script" src="script.js" defer></script>
 
 </head>
 
-<body class="w3-container">
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#" onclick="answer('back')">
+          <img src="https://tweedekamer2021.stemwijzer.nl/gfx/img/votematch_applogo.svg"  height="37" class="d-inline-block align-top" alt="">
+          Terug
+        </a>
+        <p id= "subjectNumber" class="nav-item">0/30</p>
+
+      </nav>
 
 
-
-    <div class="wrapper">
+    <div class="wrapper w3-container">
         <div class="start">
             <div id="start">
                 <div class=" w3-display-middle start__modal">
@@ -25,75 +35,93 @@
                             class="start__logo">
                     </div>
                     <h1 aria-label="Tweede Kamer&amp;shy;verkiezingen 2021" class="start__title">Tweede
-                        Kamer­verkiezingen 2021
+                        Kamer­verkiezingen 2022
                     </h1>
-                    <h2 class="start__subtitle">Test je politieke voorkeur aan de hand van 30 stellingen</h2>
                     <div class="start__modal-footer"><input id="start" onclick="start()"
                             class="w3-button w3-xlarge w3-round-large startButton" type="button" value="Start">
                     </div>
-                    
-                            <input onclick="myFunction2('cda')"
-                                class="w3-button w3-xlarge w3-round-large thoughts" type="button" value="test" >
-                                <div id="cda" class="spec_statement_modal" style="display:none">
-                                    <p id="cda" class="" >cda</p>
-                                </div>
+                </div>
             </div>
-        </div>
 
 
 
-        <div id="container" display="none">
-            <div class="statement w3-display-middle">
-                <h1 id="title" class="statement__theme "></h1>
-                <p id="statement" class="statement-text"></p>
-                <button onclick="myFunction()" class="w3-button w3-xxlarge w3-round-large thoughts">Wat vinden de
-                    partijen?</button>
-                <div id="list" class="statement_modal" style="display:none">
-                    <div class="row">
-                        <div  id="partyPro" class="col">
-                            <h4>Eens</h4>
-                            <p>Deze partijen zijn het ermee eens</p>
-                            <ul>
-                            </ul>
-                        </div>
+            <div id="container" display="none">
+                <div class="statement ">
+                    <div class="statement-text">
+                        <h1 id="title" class="statement__theme "></h1>
+                        <p id="statement"></p>
+                        <button onclick="myFunction()" id="opinions"
+                            class="w3-button w3-xxlarge w3-round-large thoughts">Wat vinden de
+                            partijen?</button>
+                    </div>
 
-                        <div id="partyNeither" class="col">
-                            <h4>Geen mening</h4>
-                            <ul>
-                            </ul>
-                        </div>
-                        <div id="partyContra" class="col">
-                            <h4>Oneens</h4>
-                            <ul>
-                            </ul>
+
+                    <div id="list" class="statement_modal" style="display:none">
+                        <div class="row">
+                            <div class="col">
+                                <h3 style="color:#20a84b">Eens</h3>
+                                <p>Deze partijen zijn het ermee eens</p>
+                                <ul id="partyPro">
+                                </ul>
+                            </div>
+
+                            <div class="col">
+                                <h3>Geen van</h3>
+                                <p>Deze partijen zijn niet oneens of eens met de stelling </p>
+
+                                <ul id="partyNeither">
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <h3 style="color:#eb2045">Oneens</h3>
+                                <p>Deze partijen zijn het oneens met de stelling</p>
+
+                                <ul id="partyContra">
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="buttons w3-display-bottommiddle">
-                <button onclick="answer('pro')" class="w3-button w3-xxlarge w3-round-large agree">Eens</button>
-                <button onclick="answer('none')" class="w3-button w3-xxlarge w3-round-large neither">~ Geen van
-                    beide</button>
-                <button onclick="answer('contra')" class="w3-button w3-xxlarge w3-round-large disAgree">Oneens</button>
-                <!-- <button class="w3-button w3-xxlarge w3-round-large skip">Overslaan</button>     -->
-            </div>
+                <div class="buttons w3-display-bottommiddle">
+                    <button onclick="answer('pro')" class="w3-button w3-xxlarge w3-round-large agree">Eens</button>
+                    <button onclick="answer('none')" class="w3-button w3-xxlarge w3-round-large neither">~ Geen van
+                        beide</button>
+                    <button onclick="answer('contra')"
+                        class="w3-button w3-xxlarge w3-round-large disAgree">Oneens</button>
+                    <button onclick="answer('skip')" class="w3-button w3-medium  skip">Overslaan</button>
+                </div>
 
-        </div>
-
-
-        <!-- <input onclick="answer('pro')" class="w3-button w3-green" type="button" value="Eens">
-            <input onclick="answer('none')" class="w3-button w3-teal" type="button" value="Geen mening">
-            <input onclick="answer('contra')" class="w3-button w3-red" type="button" value="Oneens">
-            <div class="w3-dropdown-click">
-                <button onclick="myFunction()" class="w3-button w3-black">Zou uw het standpunt van een partij willen
-                weten?</button>
-                <div id="list" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-zoom"></div>
             </div>
-    <h1 id="party"></h1>
-    <p id="specStatement"></p>
-    </div>
-    <p id="result"></p>
-    </div> -->
+            <div id="result">
+
+            </div>
+            <!-- <div id="resultModal">
+                <div class=" w3-display-middle start__modal">
+                    <div class="start__logos"><img alt="StemWijzer Logo"
+                            src="https://tweedekamer2021.stemwijzer.nl/gfx/img/votematch_applogo.svg"
+                            class="start__logo">
+                    </div>
+                    <h1 aria-label="Tweede Kamer&amp;shy;verkiezingen 2021" class="start__title">
+                        Resultaat
+                    </h1>
+                    <div id="resultBar" class="w3-light-grey w3-round-large resultBars">
+                    </div><br>
+
+                </div>
+            </div> -->
+            <div id="resultModal">
+                <div class="end__modal">
+                    <div class="start__logos"><img alt="StemWijzer Logo"
+                            src="https://tweedekamer2021.stemwijzer.nl/gfx/img/votematch_applogo.svg"
+                            class="start__logo">
+                    </div>
+                    <h1 aria-label="Tweede Kamer&amp;shy;verkiezingen 2021" class="start__title">
+                        Resultaat:
+                    </h1>
+                    <ul id="resultBars" class="resultBars">
+                    </ul>           
+                </div>
+            </div>
 </body>
 
 

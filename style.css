@@ -47,6 +47,7 @@ body {
     z-index: 2;
 }
 
+
 .statement_modal {
     position: relative;
     z-index: 100;
@@ -112,6 +113,20 @@ body {
     color: white;
 }
 
+.back {
+    margin-left: 14px;
+    color: #233fff;
+    font-size: 40px;
+}
+.back:hover .bi-arrow-left-circle-fill,
+.back .bi-arrow-left-circle {
+    display: none;
+}
+.back:hover .bi-arrow-left-circle {
+    display: inline;
+    color: #233fff;
+}
+
 .thoughts {
     background-color: white;
     color: black;
@@ -126,6 +141,53 @@ body {
     font-size: 15px;
     margin-top: 4px;
     width: 60%;
+}
+
+
+.select__modal {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 12px;
+    padding: 64px 50px 64px 64px;
+    margin: 40px;
+    background: #f1f1f1;
+    box-shadow: 0 0 2px rgb(0 0 0 / 10%), 0 16px 80px rgb(0 0 0 / 10%);
+}
+
+.select__modal li ul{
+    background-color: red;
+}
+.selectButton{
+    border-radius: 4px;
+    border: solid black 1px;
+    margin: 15px;
+    float: left;
+    background: rgba(5, 5, 5, 0.459);    
+    color: white;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 4px;
+    width: 40%;
+}
+
+
+.gotoResult{
+    background-color:  #233fff;   
+    color:white;
+}
+.partiesoverview {
+    margin: 15px;
+    float: left;
+    border-radius: 4px;
+    background: #fff;    
+    color: black;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 4px;
+    width: 45%;
 }
 
 .spec_statement_modal {
@@ -171,9 +233,7 @@ body {
 }
 
 .col ul {
-    /* position:relative;
-    transform: translate(-50%);
-    left: 50%; */
+    
     margin: 0;
     padding: 0;
     list-style-type: none;
